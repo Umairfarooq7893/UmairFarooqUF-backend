@@ -13,7 +13,7 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false }
 });
 
-// --- PUBLIC ROUTES (Forms) ---
+// --- PUBLIC ROUTES ---
 app.post('/api/book-podcast', async (req, res) => {
   try {
     const { name, designation, company, contact, location, locationDetails, notes } = req.body;
@@ -47,7 +47,7 @@ app.post('/api/ideas', async (req, res) => {
   } catch (err) { res.status(500).json({ error: err.message }); }
 });
 
-// --- ADMIN LOGIN ---
+// --- ADMIN LOGIN (THIS IS THE MISSING ROUTE) ---
 app.post('/api/admin/login', (req, res) => {
   const { password } = req.body;
   if (password !== process.env.ADMIN_PASSWORD) {
